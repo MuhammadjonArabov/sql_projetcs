@@ -15,13 +15,27 @@ INSERT INTO user (first_name, last_name, age, phone) VALUES
 
 CREATE TABLE passport (
     id SERIAL PRIMARY KEY,
-    user_id INT UNIQUE REFERENCES user(id),
+    user_id INT UNIQUE REFERENCES user(id), -- One-to-One (1:1)
     passport_number VARCHAR(20),
     issue_date DATE,
     expiry_date DATE
 );
 
-INSERT INSERT passport (user_id, passport_number, issue_date, expiry_date) VALUES
+INSERT INTO passport (user_id, passport_number, issue_date, expiry_date) VALUES
 (1, 'AC1234544', '1989-01-02', '1990-02-02'),
 (2, 'AC1234344', '1981-01-02', '1995-02-02'),
 (3, 'AC1234514', '1982-01-02', '1998-02-02');
+
+
+CREATE TABLE order (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES user(id),
+    product_name VARCHAR(25),
+    order_date DATE
+);
+
+INSERT INTO order (user_id, product_name, order_date) VALUES 
+(1, "Olma", "1990-02-02"),
+(1, "Nok", "1990-02-03"),
+(1, "Behi", "1990-02-04"),
+(1, "Shaftoli", "1990-02-05");
