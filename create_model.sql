@@ -12,6 +12,7 @@ INSERT INTO users (first_name, last_name, age, phone) VALUES
 ('Sobir', 'Jalilov', 21, '+998981235677'),
 ('Halimjon', 'Qabulov', 23, '+998939991233');
 
+
 CREATE TABLE passport (
     id SERIAL PRIMARY KEY,
     user_id INT UNIQUE REFERENCES users(id), 
@@ -25,6 +26,7 @@ INSERT INTO passport (user_id, passport_number, issue_date, expiry_date) VALUES
 (2, 'AC1234344', '1981-01-02', '1995-02-02'),
 (3, 'AC1234514', '1982-01-02', '1998-02-02');
 
+
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id), 
@@ -37,3 +39,37 @@ INSERT INTO orders (user_id, product_name, order_date) VALUES
 (2, 'Nok', '1990-02-03'),
 (3, 'Behi', '1990-02-04'),
 (4, 'Shaftoli', '1990-02-05');
+
+
+CREATE TABLE addresses(
+	id SERIAL PRIMARY KEY,
+	user_id INT REFERENCES users(id),
+	address_line TEXT,
+	city VARCHAR(50),
+	region VARCHAR(50),
+	postal_code VARCHAR(10),
+	address_type VARCHAR(10)
+);
+
+INSERT INTO addresses (user_id, address_line, city, region, postal_code, address_type) VALUES 
+	(1, 'Shaxrisabz ko‘chasi, 12-uy', 'Toshkent', 'Toshkent', '100011', 'home'),
+	(1, 'Universitet ko‘chasi, 8-uy', 'Toshkent', 'Toshkent', '100017', 'work'),
+	(2, 'Amir Temur ko‘chasi, 3-uy', 'Samarqand', 'Samarqand', '140100', 'home');
+
+
+
+CREATE TABLE payments (
+    id SERIAL PRIMARY KEY,
+    order_id INT REFERENCES orders(id),
+    amount DECIMAL(10, 2),
+    payment_date DATE,
+    payment_method VARCHAR(20)  
+);
+
+INSERT INTO payments (order_id, amount, payment_date, payment_method) VALUES
+(1, 250.00, '2025-09-23', 'card'),
+(2, 120.50, '2024-08-12', 'cash'),
+(3, 145.75, '2025-09-05', 'online');
+
+
+
