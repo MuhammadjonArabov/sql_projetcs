@@ -72,4 +72,11 @@ INSERT INTO payments (order_id, amount, payment_date, payment_method) VALUES
 (3, 145.75, '2025-09-05', 'online');
 
 
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    price DECIMAL(10,2)
+);
+
+
 
