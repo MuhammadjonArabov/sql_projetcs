@@ -78,5 +78,11 @@ CREATE TABLE products (
     price DECIMAL(10,2)
 );
 
+INSERT INTO products (name, price) VALUES
+('Olma', 234),
+('Nok', 234), 
+('Behi', 456), 
+('shaftoli', 123);
+
 
 
