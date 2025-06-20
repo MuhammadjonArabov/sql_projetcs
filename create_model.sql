@@ -92,4 +92,12 @@ JOIN addresses a ON u.id = a.user_id
 WHERE a.city = 'Toshkent';
 
 
+UPDATE products SET phone = '+998941112277' WHERE name = 'Olma';
+
+ALTER TABLE users ADD COLUMN email VARCHAR(100);
+
+CREATE INDEX index_users_phone ON users(phone);
+
+DROP INDEX index_users_phone;
+
 
