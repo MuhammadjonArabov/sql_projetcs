@@ -86,3 +86,10 @@ INSERT INTO products (name, price) VALUES
 
 
 
+
+SERIAL u.first_name, u.last_name, a.city FROM users u 
+JOIN addresses a ON u.id = a.user_id
+WHERE a.city = 'Toshkent';
+
+
+
