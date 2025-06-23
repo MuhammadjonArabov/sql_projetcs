@@ -20,3 +20,16 @@ INSERT INTO students (first_name, last_name, age, grade, city) VALUES
 ('Bobur', 'Nasriddinov', 23, 60.0, 'Qashqadaryo'),
 ('Muhammad', 'Salimov', 21, 82.2, 'Andijon'),
 ('Laylo', 'Azimova', 19, 68.4, 'Namangan');
+
+--------------------------------------------------------------------------
+
+SELECT first_name FROM students WHERE grade > 70;
+
+--------------------------------------------------------------------------
+
+SELECT * FROM students WHERE age = 20;
+
+--------------------------------------------------------------------------
+
+SELECT first_name, last_name, age, city FROM students WHERE city = 'Toshkent';
+
