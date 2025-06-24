@@ -25,7 +25,7 @@
 SELECT * FROM students;
 
 ----------- 2 ---------
-SELECT * FROM students WHERE city = 'Toshkent';
+SELECT * FROM students WHERE city = 'Toshkent'
 
 ----------- 3 ---------
 SELECT * FROM students WHERE age > 20;
@@ -76,7 +76,11 @@ SELECT * FROM student WHERE city != 'Toshkent';
 SELECT * FROM students WHERE city = 'Toshkent' AND grade > 70;
 
 --------- 18 -----------
-SELECT 
+SELECT * FROM students WHERE grade < 60 OR grade > 90;
+
+--------- 20 -----------
+SELECT * FROM students ORDER BY grade DESC LIMIT 3;
+
 
 
 
