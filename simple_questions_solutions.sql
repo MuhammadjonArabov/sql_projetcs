@@ -51,6 +51,23 @@ SELECT MIN(age) AS youngest_students FROM students;
 ----------- 10 --------
 SELECT MAX(grade) AS max_grade FROM students;
 
+----------- 11 --------
+SELECT SUM(grade) AS sum_grade FROM students;
+
+----------- 12 --------
+SELECT AVG(grade) AS average_grade FROM students;
+
+----------  13 --------
+SELECT * FROM students WHERE first_name LIKE 'A%';
+
+---------- 14 ----------
+SELECT * FROM students WHERE city = 'Toshkent' OR city = 'Andijon';
+SELECT * FROM starts WHERE city IN ('Toshkent', 'Andijon');
+
+---------- 15 ----------
+SELECT * FROM students WHERE age BETWEEN 18 AND 20;
+SELECT * FROM students WHERE age >= 18 AND age <= 20;
+
 
 
 
