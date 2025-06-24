@@ -45,6 +45,12 @@ SELECT * FROM students ORDER BY grade DESC;
 ----------- 8 ---------
 SELECT COUNT(*) AS total_students FROM students;
 
+----------- 9 ---------
+SELECT MIN(age) AS youngest_students FROM students;
+
+----------- 10 --------
+SELECT MAX(grade) AS max_grade FROM students;
+
 
 
 
