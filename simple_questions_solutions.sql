@@ -68,6 +68,16 @@ SELECT * FROM starts WHERE city IN ('Toshkent', 'Andijon');
 SELECT * FROM students WHERE age BETWEEN 18 AND 20;
 SELECT * FROM students WHERE age >= 18 AND age <= 20;
 
+---------- 16 ----------
+SELECT * FROM students WHERE NOT city = 'Toshkent';
+SELECT * FROM student WHERE city != 'Toshkent';
+
+---------- 17 ----------
+SELECT * FROM students WHERE city = 'Toshkent' AND grade > 70;
+
+--------- 18 -----------
+SELECT 
+
 
 
 
