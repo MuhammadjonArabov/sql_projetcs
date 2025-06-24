@@ -21,7 +21,30 @@
 20. Select the top 3 students by grade.
  */
 
-
+----------- 1 ---------
 SELECT * FROM students;
+
+----------- 2 ---------
+SELECT * FROM students WHERE city = 'Toshkent';
+
+----------- 3 ---------
+SELECT * FROM students WHERE age > 20;
+
+----------- 4 ---------
+SELECT * FROM students WHERE grade > 80;
+
+----------- 5 ---------
+SELECT * FROM students LIMIT 5;
+
+----------- 6 ---------
+SELECT * FROM students ORDER BY age ASC;
+
+----------- 7 ---------
+SELECT * FROM students ORDER BY grade DESC;
+
+----------- 8 ---------
+SELECT COUNT(*) AS total_students FROM students;
+
+
 
 
