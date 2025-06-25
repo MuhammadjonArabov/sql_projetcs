@@ -91,3 +91,11 @@ SELECT * FROM students WHERE city != 'Toshkent' AND grade > 80;
 
 ---------- 18 ----------
 SELECT * FROM students WHERE age IN (19, 20) ORDER BY garde DESC LIMIT 4;
+
+
+---------- 19 ----------
+SELECT (first_name, last_name, grade) AS performance FROM students;
+
+
+---------- 20 ---------
+SELECT MIN(age) AS min_age FROM students WHERE last_name LIKE 'S%';
