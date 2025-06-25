@@ -68,6 +68,26 @@ SELECT COUNT(*) AS count_sh FROM students WHERE first_name LIKE '%sh%';
 ---------- 12 ----------
 SELECT * FROM students WHERE city = 'Toshkent' ORDER BY grade DESC LIMIT 2;
 
+
 ---------- 13 ----------
+SELECT AVG(grade) AS avg_grade FROM students WHERE age != 19;
 
 
+---------- 14 ----------
+SELECT * FROM students WHERE grade > (SELECT AVG(grade) FROM students);
+
+
+---------- 15 ----------
+SELECT city, COUNT(*) AS count_student FROM students GROUP BY city;
+
+
+---------- 16 ----------
+SELECT city, MAX(grade) AS max_grade FROM students GROUP BY city;
+
+
+---------- 17 ----------
+SELECT * FROM students WHERE city != 'Toshkent' AND grade > 80;
+
+
+---------- 18 ----------
+SELECT * FROM students WHERE age IN (19, 20) ORDER BY garde DESC LIMIT 4;
