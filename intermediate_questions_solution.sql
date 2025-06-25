@@ -64,3 +64,10 @@ SELECT * FROM students WHERE grade BETWEEN 70 AND 90 ORDER BY age ASC;
 ---------- 11 ----------
 SELECT COUNT(*) AS count_sh FROM students WHERE first_name LIKE '%sh%';
 
+
+---------- 12 ----------
+SELECT * FROM students WHERE city = 'Toshkent' ORDER BY grade DESC LIMIT 2;
+
+---------- 13 ----------
+
+
