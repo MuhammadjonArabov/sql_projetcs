@@ -48,3 +48,5 @@ SELECT COUNT(*) AS count_students FROM students WHERE grade > 80 AND city NOT LI
 SELECT * FROM students WHERE first_name LIKE '%a%' AND grade BETWEEN 70 AND 90;
 
 
+---------- 8 ----------
+SELECT COUNT(*) AS amount_student FROM students WHERE city IN ('Toshkent', 'Andijon') AND age > 20;
