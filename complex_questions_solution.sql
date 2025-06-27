@@ -3,8 +3,7 @@
 2. Count students with grades above 70 per city.
 3. Calculate the average grade of students aged 18 or 19 from Samarqand or Namangan.
 4. Select the top 3 cities by average grade.
-5. Select students with grades below the average grade of their city.
-6. Find the highest and lowest grades per age group.
+5. Find the highest and lowest grades per age group.
 7. Count students with grades above 80 and from cities not starting with 'T'.
 8. Select students with 'a' in their first name and grades between 70 and 90.
 9. Calculate the sum of grades for students aged 20 or older from Toshkent or Andijon.
@@ -38,3 +37,6 @@ SELECT city, AVG(grade) AS average_city FROM students GROUP BY city ORDER BY cit
 
 
 ---------- 5 ----------
+SELECT age, MAX(grade) AS max_grade, MIN(grade) AS min_grade FROM students GROUP BY age;
+
+
