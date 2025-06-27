@@ -31,3 +31,10 @@ SELECT city, COUNT(*) AS count_city FROM students WHERE grade > 70 GROUP BY city
 
 ---------- 3 ----------
 SELECT AVG(grade) AS avg_grade FROM students WHERE city IN ('Samarqand', 'Namangan') AND age IN (18, 19);
+
+
+---------- 4 ---------- 
+SELECT city, AVG(grade) AS average_city FROM students GROUP BY city ORDER BY city DESC LIMIT 3;
+
+
+---------- 5 ----------
