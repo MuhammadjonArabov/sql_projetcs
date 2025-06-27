@@ -40,3 +40,11 @@ SELECT city, AVG(grade) AS average_city FROM students GROUP BY city ORDER BY cit
 SELECT age, MAX(grade) AS max_grade, MIN(grade) AS min_grade FROM students GROUP BY age;
 
 
+---------- 6 ----------
+SELECT COUNT(*) AS count_students FROM students WHERE grade > 80 AND city NOT LIKE 'T%';
+
+
+---------- 7 ----------
+SELECT * FROM students WHERE first_name LIKE '%a%' AND grade BETWEEN 70 AND 90;
+
+
