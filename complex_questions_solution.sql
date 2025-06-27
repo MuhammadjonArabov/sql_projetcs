@@ -4,20 +4,15 @@
 3. Calculate the average grade of students aged 18 or 19 from Samarqand or Namangan.
 4. Select the top 3 cities by average grade.
 5. Find the highest and lowest grades per age group.
-7. Count students with grades above 80 and from cities not starting with 'T'.
-8. Select students with 'a' in their first name and grades between 70 and 90.
-9. Calculate the sum of grades for students aged 20 or older from Toshkent or Andijon.
-10. Select the top 2 students per city by grade.
-11. Find cities with more than 2 students.
-12. Select students with grades above the overall average, sorted by city and grade.
-13. Calculate the average age of students with grades above 80, grouped by city.
-14. Select students not in the top 3 grades.
-15. Find the difference between the highest and lowest grades per city.
-16. Select students with first names longer than 5 characters and grades above 70.
-17. Find cities where the average grade is above the overall average grade.
-18. Select students in the top 50% of grades in their city.
-19. Count students with grades at least 60 per age group, sorted by count.
-20. Select students whose grades are within 10 points of their city’s average grade.
+6. Count students with grades above 80 and from cities not starting with 'T'.
+7. Select students with 'a' in their first name and grades between 70 and 90.
+8. Calculate the sum of grades for students aged 20 or older from Toshkent or Andijon.
+9. Select students with grades above the overall average, sorted by city and grade.
+10. Calculate the average age of students with grades above 80, grouped by city.
+11. Select students not in the top 3 grades.
+12. Find the difference between the highest and lowest grades per city.
+13. Select students with first names longer than 5 characters and grades above 70.
+14. Count students with grades at least 60 per age group, sorted by count.
 */
 
 ---------- 1 ----------
@@ -50,3 +45,6 @@ SELECT * FROM students WHERE first_name LIKE '%a%' AND grade BETWEEN 70 AND 90;
 
 ---------- 8 ----------
 SELECT COUNT(*) AS amount_student FROM students WHERE city IN ('Toshkent', 'Andijon') AND age > 20;
+
+
+---------- 9 ----------
