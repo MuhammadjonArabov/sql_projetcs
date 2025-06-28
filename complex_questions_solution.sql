@@ -47,4 +47,13 @@ SELECT * FROM students WHERE first_name LIKE '%a%' AND grade BETWEEN 70 AND 90;
 SELECT COUNT(*) AS amount_student FROM students WHERE city IN ('Toshkent', 'Andijon') AND age > 20;
 
 
----------- 9 ----------
+---------- 9 ---------- 
+SELECT * FROM students grade > (SELECT AVG(grade) FROM students) ORDER BY city, grade DESC;
+
+
+--------- 10 ----------
+SELECT city,  AVG(age) AS average_age FROM students WHERE grade > 80 GROUP BY city;
+
+
+--------- 11 ---------
+SELECT * FROM students WHERE grade NOT IN (SELECT grade FROM students ORDER BY grade DESC LIMIT 3);
