@@ -57,3 +57,15 @@ SELECT city,  AVG(age) AS average_age FROM students WHERE grade > 80 GROUP BY ci
 
 --------- 11 ---------
 SELECT * FROM students WHERE grade NOT IN (SELECT grade FROM students ORDER BY grade DESC LIMIT 3);
+
+
+--------- 12 ---------
+SELECT city, MAX(grdae) - MIN(grdae) AS grade_difference FROM students GROUP BY city;
+
+
+--------- 13 ---------
+SELECT * FROM students WHERE LENGTH(first_name) > 5 AND grade > 70;
+
+
+--------- 14 ---------
+SELECT age, COUNT(*) AS count_s FROM students WHERE grade >= 60 GROUP BY age ORDER BY count_s DESC;
