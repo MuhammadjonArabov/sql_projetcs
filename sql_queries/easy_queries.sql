@@ -79,3 +79,15 @@ SELECT * FROM employees WHERE deparment_id IN (
     SELECT deparment_id FROM deparments WHERE location IN ('Fargona', 'Andijon');
 )  
 
+
+-------- 11 --------
+-- 1 - variant
+SELECT d.deparment_name, COUNT(e.deparment_id) AS employee_count
+FROM deparments d LEFT JOIN ermployees e ON d.deparment_id = e.deparment_id
+GROUP BY d.deparment_name;
+
+-- 2 - variant
+SELECT d.deparment_name, (
+    SELECT COUNT(*)
+    FROM employees e WHERE e.deparment_id  = d.deparment_id
+) FROM deparments d;
