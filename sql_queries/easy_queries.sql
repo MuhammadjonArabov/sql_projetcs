@@ -1,34 +1,34 @@
 /**
-Barcha xodimlarning ismlari va maoshlarini chiqaring.
-IT bo‘limidagi xodimlar ro‘yxatini chiqaring.
-Maoshi 4000 dan yuqori bo‘lgan xodimlarni tartiblangan holda chiqaring.
-Eng yuqori maosh oluvchi xodimni toping.
-Oxirgi 3 yilda ishga qabul qilingan xodimlarni chiqaring.
-Ismi 'A' harfi bilan boshlanadigan xodimlarni chiqaring.
-Toshkentda joylashgan bo‘limlarni chiqaring.
-Barcha loyihalarni boshlanish sanasi bo‘yicha tartiblang.
-Eng past maosh oluvchi xodimni toping.
-Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
-Har bir bo‘limdagi xodimlar sonini chiqaring.
-Barcha xodimlarning umumiy maoshini hisoblang.
-IT bo‘limidagi xodimlarning o‘rtacha maoshini toping.
-Eng katta byudjetli loyihani toping.
-Har bir bo‘limdagi loyihalarning umumiy byudjetini chiqaring.
-Kamida 2 ta xodimi bor bo‘limlarni chiqaring.
-Eng kichik loyiha byudjetini toping.
-Har bir bo‘limdagi eng yuqori maoshni chiqaring.
-2023-yilda boshlangan loyihalar sonini toping.
-Har bir bo‘limdagi o‘rtacha maoshni va xodimlar sonini chiqaring.
-Har bir xodimning bo‘limi nomini chiqaring.
-IT bo‘limidagi loyihalar va ularning boshlanish sanasini chiqaring.
-Hech qanday loyihasi bo‘lmagan bo‘limlarni chiqaring.
-Barcha bo‘limlar va ulardagi xodimlar ro‘yxatini chiqaring (xodimi bo‘lmasa ham).
-Xodimlari va loyihalari bo‘lgan bo‘limlarni chiqaring.
-IT va HR bo‘limlaridagi xodimlar va loyihalarni birlashtiring.
-Barcha loyihalarni va ularning bo‘lim nomlarini chiqaring.
-Maoshi 5000 dan yuqori bo‘lgan xodimlarning bo‘limlarini chiqaring.
-Har bir loyiha uchun bo‘lim joylashuvini chiqaring.
-Xodimlari bo‘lmagan bo‘limlarni chiqaring.
+1. Barcha xodimlarning ismlari va maoshlarini chiqaring.
+2. IT bo‘limidagi xodimlar ro‘yxatini chiqaring.
+3. Maoshi 4000 dan yuqori bo‘lgan xodimlarni tartiblangan holda chiqaring.
+4. Eng yuqori maosh oluvchi xodimni toping.
+5. Oxirgi 3 yilda ishga qabul qilingan xodimlarni chiqaring.
+6. Ismi 'A' harfi bilan boshlanadigan xodimlarni chiqaring.
+7. Toshkentda joylashgan bo‘limlarni chiqaring.
+8. Barcha loyihalarni boshlanish sanasi bo‘yicha tartiblang.
+9. Eng past maosh oluvchi xodimni toping.
+10. Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
+11. Har bir bo‘limdagi xodimlar sonini chiqaring.
+12. Barcha xodimlarning umumiy maoshini hisoblang.
+13. IT bo‘limidagi xodimlarning o‘rtacha maoshini toping.
+14. Eng katta byudjetli loyihani toping.
+15. Har bir bo‘limdagi loyihalarning umumiy byudjetini chiqaring.
+16. Kamida 2 ta xodimi bor bo‘limlarni chiqaring.
+17. Eng kichik loyiha byudjetini toping.
+18. Har bir bo‘limdagi eng yuqori maoshni chiqaring.
+19. 2023-yilda boshlangan loyihalar sonini toping.
+21. Har bir bo‘limdagi o‘rtacha maoshni va xodimlar sonini chiqaring.
+22. Har bir xodimning bo‘limi nomini chiqaring.
+23. IT bo‘limidagi loyihalar va ularning boshlanish sanasini chiqaring.
+24. Hech qanday loyihasi bo‘lmagan bo‘limlarni chiqaring.
+25. Barcha bo‘limlar va ulardagi xodimlar ro‘yxatini chiqaring (xodimi bo‘lmasa ham).
+26. Xodimlari va loyihalari bo‘lgan bo‘limlarni chiqaring.
+27. IT va HR bo‘limlaridagi xodimlar va loyihalarni birlashtiring.
+28. Barcha loyihalarni va ularning bo‘lim nomlarini chiqaring.
+29. Maoshi 5000 dan yuqori bo‘lgan xodimlarning bo‘limlarini chiqaring.
+30. Har bir loyiha uchun bo‘lim joylashuvini chiqaring.
+31. Xodimlari bo‘lmagan bo‘limlarni chiqaring.
 **/
 
 
@@ -39,3 +39,13 @@ SELECT first_name, salary FROM employees;
 SELECT * FROM employees WHERE deparment_id = 1;
 
 -------- 3 ---------
+SELECT * FROM employees WHERE salary > 4000 ORDER BY salary DESC;
+
+-------- 4 ---------
+SELECT * FROM employees ORDER BY salary DESC LIMIT 1;
+
+-------- 5 ---------
+SELECT * FROM employees WHERE hire_data >= CURRENT_DATE  - INTERVAL '3 years';
+
+-------- 6 ---------
+
