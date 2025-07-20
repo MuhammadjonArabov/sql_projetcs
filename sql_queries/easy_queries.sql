@@ -35,17 +35,47 @@
 -------- 1 ---------
 SELECT first_name, salary FROM employees;
 
+
 -------- 2 ---------
 SELECT * FROM employees WHERE deparment_id = 1;
+
 
 -------- 3 ---------
 SELECT * FROM employees WHERE salary > 4000 ORDER BY salary DESC;
 
+
 -------- 4 ---------
 SELECT * FROM employees ORDER BY salary DESC LIMIT 1;
+
 
 -------- 5 ---------
 SELECT * FROM employees WHERE hire_data >= CURRENT_DATE  - INTERVAL '3 years';
 
+
 -------- 6 ---------
+SELECT * FROM employees WHERE first_name LIKE 'A%';
+
+
+-------- 7 ---------
+SELECT deparment_name FROM deparments WHERE location = 'Toshkent';
+
+
+-------- 8 ---------
+SELECT * FROM projects ORDER BY start_date;
+
+
+-------- 9 ---------
+SELECT * FROM employees ORDER BY salary ASC LIMIT 1;
+
+
+-------- 10 --------
+  -- 1 - variant
+SELECT e.first_name, e.last_name, d.deparment_name, d.location FROM employees e 
+JOIN deparment d ON e.deparment_id = d.deparment_id 
+WHERE D.location IN ('Fargona', 'Andijon');
+
+  -- 2 - variant
+SELECT * FROM employees WHERE deparment_id IN (
+    SELECT deparment_id FROM deparments WHERE location IN ('Fargona', 'Andijon');
+)  
 
