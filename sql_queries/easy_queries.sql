@@ -13,9 +13,7 @@
 12. Barcha xodimlarning umumiy maoshini hisoblang.
 
 
-16. Kamida 2 ta xodimi bor bo‘limlarni chiqaring.
-17. Eng kichik loyiha byudjetini toping.
-18. Har bir bo‘limdagi eng yuqori maoshni chiqaring.
+
 19. 2023-yilda boshlangan loyihalar sonini toping.
 21. Har bir bo‘limdagi o‘rtacha maoshni va xodimlar sonini chiqaring.
 22. Har bir xodimning bo‘limi nomini chiqaring.
@@ -120,3 +118,21 @@ GROUP BY d.deparment_name;
 SELECT deparment_name, (
   SELECT SUM(budget) FROM projects WHERE projects.deparment_id = deparments.deparment_id
 ) AS totla_budget FROM deparments;
+
+
+---- 16. Kamida 2 ta xodimi bor bo‘lgan bo'limlarni chiqaring.
+SELECT d.deparment_name, COUNT(e.employe_id) FROM deparments d 
+JOIN employees e ON deparments.deparment_id = e.deparment_id
+GROUP BY d.deparment_name HAVING COUNT(e.employe_id) >= 2;
+
+
+---- 17. Eng kichik loyiha byudjetini toping.
+SELECT peoject_name, budget FROM projects WHERE budget = (
+  SELECT MIN(budget) FROM projects
+);
+
+
+---- 18. Har bir bo‘limdagi eng yuqori maoshni chiqaring.
+SELECT d.deparment_name MAX(e.salary) FROM deparments d 
+JOIN employees e ON d.deparment_id = e.deparment_id
+GROUP BY d.deparment_name;
