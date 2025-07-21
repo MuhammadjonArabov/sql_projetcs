@@ -128,3 +128,25 @@ SELECT COUNT(*) AS project_count FROM projects WHERE EXTRACT(YEAR FROM start_dat
 SELECT COUNT(*) AS project_count FROM projects WHERE DATE_PART('year', start_date) = 2023;
 
 ---- 20. Har bir bo'limdagi o'rtacha maoshni va xodimlar sonini chiqaring.
+SELECT d.deparment_name, AVG(e.salary) AS average_salary, COUNT(e.employe_id) AS employee_count
+FROM deparments d JOIN employees e ON d.deparment_id = e.deparment_id GROUP BY d.deparment_name;
+
+
+
+---- 21. Har bir xodimning bo'limi nomini chiqaring.
+SELECT e.first_name, d.deparment_name FROM employees e JOIN deparments d ON e.deparment_id = d.deparment_id;
+
+
+---- 22. IT bo'limidagi loyihalar va ularning boshlanish sanasini chiqaring.
+SELECT p.project_name, p.start_date FROM projects p JOIN deparments d ON p.deparment_id = d.deparment_id
+WHERE d.deparment_name = 'IT';
+
+
+---- 23. Hech qanday loyihasi bo'lmagan bo'limlarni chiqaring
+SELECT d.deparment_name FROM deparments d LEFT JOIN projects p ON d.deparment_id = p.deparment_id
+WHERE project_id IS NULL;
+
+
+---- 24. Barcha bo'limlar va ulardagi xodimlar ro'yxatini chiqaring (xodimi bo'lmasa ham).
+SELECT d.deparment_name, e.first_name FROM deparments d LEFT JOIN projects p
+ON d.deparment_id = p.deparment_id;
