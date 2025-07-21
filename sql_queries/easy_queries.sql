@@ -11,9 +11,8 @@
 10. Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
 11. Har bir bo‘limdagi xodimlar sonini chiqaring.
 12. Barcha xodimlarning umumiy maoshini hisoblang.
-13. IT bo‘limidagi xodimlarning o‘rtacha maoshini toping.
-14. Eng katta byudjetli loyihani toping.
-15. Har bir bo‘limdagi loyihalarning umumiy byudjetini chiqaring.
+
+
 16. Kamida 2 ta xodimi bor bo‘limlarni chiqaring.
 17. Eng kichik loyiha byudjetini toping.
 18. Har bir bo‘limdagi eng yuqori maoshni chiqaring.
@@ -91,3 +90,25 @@ SELECT d.deparment_name, (
     SELECT COUNT(*)
     FROM employees e WHERE e.deparment_id  = d.deparment_id
 ) FROM deparments d;
+
+
+-------- 12 --------
+SELECT SUM(salary) AS total_salary FROM employees;
+
+
+---- 13. IT bo‘limidagi xodimlarning o‘rtacha maoshini toping.
+-- 1 - variant
+SELECT AVG(salary) AS avg_salary FROM ermployees WHERE deparment_id = 1;
+
+-- 2 - variant
+SELECT AVG(e.salary) AS avg_salary FROM employees e 
+JOIN deparments d ON e.deparment_id = d.deparment_id
+WHERE d.deparment_name = 'IT';
+
+
+---- 14. Eng katta byudjetli loyihani toping.
+SELECT * FROM projects WHERE budget = (SELECT MAX(budget) FROM projects);
+
+
+---- 15. Har bir bo‘limdagi loyihalarning umumiy byudjetini chiqaring.
+
