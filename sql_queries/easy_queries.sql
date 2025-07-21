@@ -11,21 +11,6 @@
 10. Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
 11. Har bir bo‘limdagi xodimlar sonini chiqaring.
 12. Barcha xodimlarning umumiy maoshini hisoblang.
-
-
-
-19. 2023-yilda boshlangan loyihalar sonini toping.
-21. Har bir bo‘limdagi o‘rtacha maoshni va xodimlar sonini chiqaring.
-22. Har bir xodimning bo‘limi nomini chiqaring.
-23. IT bo‘limidagi loyihalar va ularning boshlanish sanasini chiqaring.
-24. Hech qanday loyihasi bo‘lmagan bo‘limlarni chiqaring.
-25. Barcha bo‘limlar va ulardagi xodimlar ro‘yxatini chiqaring (xodimi bo‘lmasa ham).
-26. Xodimlari va loyihalari bo‘lgan bo‘limlarni chiqaring.
-27. IT va HR bo‘limlaridagi xodimlar va loyihalarni birlashtiring.
-28. Barcha loyihalarni va ularning bo‘lim nomlarini chiqaring.
-29. Maoshi 5000 dan yuqori bo‘lgan xodimlarning bo‘limlarini chiqaring.
-30. Har bir loyiha uchun bo‘lim joylashuvini chiqaring.
-31. Xodimlari bo‘lmagan bo‘limlarni chiqaring.
 **/
 
 
@@ -136,3 +121,10 @@ SELECT peoject_name, budget FROM projects WHERE budget = (
 SELECT d.deparment_name MAX(e.salary) FROM deparments d 
 JOIN employees e ON d.deparment_id = e.deparment_id
 GROUP BY d.deparment_name;
+
+
+---- 19. 2023-yilda boshlangan loyihalar sonini toping.
+SELECT COUNT(*) AS project_count FROM projects WHERE EXTRACT(YEAR FROM start_date) = 2023;
+SELECT COUNT(*) AS project_count FROM projects WHERE DATE_PART('year', start_date) = 2023;
+
+---- 20. Har bir bo'limdagi o'rtacha maoshni va xodimlar sonini chiqaring.
