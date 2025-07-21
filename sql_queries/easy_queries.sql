@@ -111,4 +111,12 @@ SELECT * FROM projects WHERE budget = (SELECT MAX(budget) FROM projects);
 
 
 ---- 15. Har bir bo‘limdagi loyihalarning umumiy byudjetini chiqaring.
+-- 1 - variant
+SELECT d.deparment_name, SUM(p.budget) AS total_budget FROM deparments d 
+JOIN projects p ON d.deparment_id = p.deparment_id
+GROUP BY d.deparment_name;
 
+--2 - variant
+SELECT deparment_name, (
+  SELECT SUM(budget) FROM projects WHERE projects.deparment_id = deparments.deparment_id
+) AS totla_budget FROM deparments;
