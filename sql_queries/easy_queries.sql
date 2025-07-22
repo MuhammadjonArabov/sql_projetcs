@@ -1,56 +1,40 @@
-/**
-1. Barcha xodimlarning ismlari va maoshlarini chiqaring.
-2. IT bo‘limidagi xodimlar ro‘yxatini chiqaring.
-3. Maoshi 4000 dan yuqori bo‘lgan xodimlarni tartiblangan holda chiqaring.
-4. Eng yuqori maosh oluvchi xodimni toping.
-5. Oxirgi 3 yilda ishga qabul qilingan xodimlarni chiqaring.
-6. Ismi 'A' harfi bilan boshlanadigan xodimlarni chiqaring.
-7. Toshkentda joylashgan bo‘limlarni chiqaring.
-8. Barcha loyihalarni boshlanish sanasi bo‘yicha tartiblang.
-9. Eng past maosh oluvchi xodimni toping.
-10. Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
-11. Har bir bo‘limdagi xodimlar sonini chiqaring.
-12. Barcha xodimlarning umumiy maoshini hisoblang.
-**/
-
-
--------- 1 ---------
+---- 1. Barcha xodimlarning ismlari va maoshlarini chiqaring.
 SELECT first_name, salary FROM employees;
 
 
--------- 2 ---------
+---- 2. IT bo‘limidagi xodimlar ro‘yxatini chiqaring.
 SELECT * FROM employees WHERE deparment_id = 1;
 
 
--------- 3 ---------
+---- 3. Maoshi 4000 dan yuqori bo‘lgan xodimlarni tartiblangan holda chiqaring.
 SELECT * FROM employees WHERE salary > 4000 ORDER BY salary DESC;
 
 
--------- 4 ---------
+---- 4. Eng yuqori maosh oluvchi xodimni toping.
 SELECT * FROM employees ORDER BY salary DESC LIMIT 1;
 
 
--------- 5 ---------
+---- 5. Oxirgi 3 yilda ishga qabul qilingan xodimlarni chiqaring.
 SELECT * FROM employees WHERE hire_data >= CURRENT_DATE  - INTERVAL '3 years';
 
 
--------- 6 ---------
+---- 6. Ismi 'A' harfi bilan boshlanadigan xodimlarni chiqaring.
 SELECT * FROM employees WHERE first_name LIKE 'A%';
 
 
--------- 7 ---------
+---- 7. Toshkentda joylashgan bo‘limlarni chiqaring.
 SELECT deparment_name FROM deparments WHERE location = 'Toshkent';
 
 
--------- 8 ---------
+---- 8. Barcha loyihalarni boshlanish sanasi bo‘yicha tartiblang.
 SELECT * FROM projects ORDER BY start_date;
 
 
--------- 9 ---------
+---- 9. Eng past maosh oluvchi xodimni toping.
 SELECT * FROM employees ORDER BY salary ASC LIMIT 1;
 
 
--------- 10 --------
+---- 10. Farg‘ona yoki Andijon bo‘limlarida ishlaydigan xodimlarni chiqaring.
   -- 1 - variant
 SELECT e.first_name, e.last_name, d.deparment_name, d.location FROM employees e 
 JOIN deparment d ON e.deparment_id = d.deparment_id 
@@ -62,7 +46,7 @@ SELECT * FROM employees WHERE deparment_id IN (
 )  
 
 
--------- 11 --------
+---- 11. Har bir bo‘limdagi xodimlar sonini chiqaring.
 -- 1 - variant
 SELECT d.deparment_name, COUNT(e.deparment_id) AS employee_count
 FROM deparments d LEFT JOIN ermployees e ON d.deparment_id = e.deparment_id
@@ -75,7 +59,7 @@ SELECT d.deparment_name, (
 ) FROM deparments d;
 
 
--------- 12 --------
+---- 12. Barcha xodimlarning umumiy maoshini hisoblang.
 SELECT SUM(salary) AS total_salary FROM employees;
 
 
