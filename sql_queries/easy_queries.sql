@@ -150,3 +150,17 @@ WHERE project_id IS NULL;
 ---- 24. Barcha bo'limlar va ulardagi xodimlar ro'yxatini chiqaring (xodimi bo'lmasa ham).
 SELECT d.deparment_name, e.first_name FROM deparments d LEFT JOIN projects p
 ON d.deparment_id = p.deparment_id;
+
+
+---- 25. Xodimlari va loyihalari bo‘lgan bo‘limlarni chiqaring.
+SELECT d.deparment_name FROM deparments d JOIN employees e ON d.deparment_id = e.deparment_id
+JOIN projects p ON d.deparment_id = p.deparment_id;
+
+
+---- 26. IT va HR bo'limlaridagi xodimlar va loyihalarni birlashtiring.
+SELECT d.deparment_name, e.first_name, p.project_name FROM deparments d 
+JOIN employees e ON d.deparment_id = e.deparment_id JOIN projects p
+ON d.deparment_id = p.deparment_id WHERE d.deparment_name IN ('IT', 'HR');
+
+
+---- 27. Barcha loyihalarni va ularning bo'lim nomlarini chiqaring
