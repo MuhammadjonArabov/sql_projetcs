@@ -164,3 +164,18 @@ ON d.deparment_id = p.deparment_id WHERE d.deparment_name IN ('IT', 'HR');
 
 
 ---- 27. Barcha loyihalarni va ularning bo'lim nomlarini chiqaring
+SELECT p.project_name, d.deparment_name FROM projects p JOIN deparments d ON p.deparment_id = d.deparment_id;
+
+
+---- 28. Maoshi 5000 dan yuqori bo'lgan xodimlarning bo'limlarini chiqaring
+SELECT d.deparment_name, e.first_name FROM deparments d JOIN employees e ON d.deparment_id = e.deparment_id
+WHERE e.salary > 5000;
+
+
+---- 29. Har bir loyiha uchun bo'lim joylashuvini chiqaring.
+SELECT p.project_name, d.location FROM deparments d JOIN projects p ON d.deparment_id = p.deparment_id;
+
+
+---- 30. Xodimlari bo'lmagan bo'limlarni chiqaring
+SELECT d.deparment_name, d.location FROM deparments d JOIN employees e ON d.deparment_id = e.deparment_id 
+WHERE e.employe_id IS NULL;
