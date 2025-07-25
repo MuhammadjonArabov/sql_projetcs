@@ -20,3 +20,12 @@ SELECT first_name FROM employees WHERE LENGTH(first_name) > 5;
 
 ---- 36. Loyihalarni oy nomi bo'yicha tartiblang
 SELECT project_name, TO_CHAR(start_date, 'Month') AS FROM projects ORDER BY EXTRACT(MONTH FROM start_date);
+
+
+---- 37. Xodimlarning email manzillarini katta harfga aylantiring
+SELECT UPPER(email) AS upper_email FROM employees;
+
+
+---- 38. Loyihalarni boshlanish yili bo'yicha guruhlang
+SELECT EXTRACT(YEAR FROM start_date)::INT AS start_year , COUNT(*) AS project_count FROM projects
+GROUP BY EXTRACT(YEAR FROM start_date) ORDER BY start_year;
