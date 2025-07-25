@@ -14,4 +14,9 @@ SELECT first_name, EXTRACT(YEAR FROM hire_data) AS hire_year FROM employees;
 SELECT first_name, (end_date - start_date) AS duration_days FROM projects;
 
 
----- 35. 
+---- 35. Ismi 5 harfdan uzun bo'lgan xodimlarni chiqaring.
+SELECT first_name FROM employees WHERE LENGTH(first_name) > 5;
+
+
+---- 36. Loyihalarni oy nomi bo'yicha tartiblang
+SELECT project_name, TO_CHAR(start_date, 'Month') AS FROM projects ORDER BY EXTRACT(MONTH FROM start_date);
