@@ -1,5 +1,5 @@
 /*
-1. Select students with grades between 60 and 80, not from Toshkent, sorted by age.
+1. 
 2. Count students with grades above 70 per city.
 3. Calculate the average grade of students aged 18 or 19 from Samarqand or Namangan.
 4. Select the top 3 cities by average grade.
@@ -15,7 +15,7 @@
 14. Count students with grades at least 60 per age group, sorted by count.
 */
 
----------- 1 ----------
+------ Select students with grades between 60 and 80, not from Toshkent, sorted by age.
 SELECT * FROM students WHERE grade BETWEEN 60 AND 80 AND city != 'Toshkent' ORDER BY age ASC;
 
 
