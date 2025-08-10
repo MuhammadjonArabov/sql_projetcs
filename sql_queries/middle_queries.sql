@@ -26,7 +26,14 @@ SELECT project_name, TO_CHAR(start_date, 'Month') AS FROM projects ORDER BY EXTR
 SELECT UPPER(email) AS upper_email FROM employees;
 
 
-
 ---- 38. Loyihalarni boshlanish yili bo'yicha guruhlang
 SELECT EXTRACT(YEAR FROM start_date)::INT AS start_year , COUNT(*) AS project_count FROM projects
 GROUP BY EXTRACT(YEAR FROM start_date) ORDER BY start_year;
+
+
+---- 39. Xodimlarning ismlarining birinchi 3 harfini chiqaring.
+SELECT LEFT(first_name, 3) AS name_part FROM employees;
+
+
+---- 40. Bugungi kunga nisbatan xodimlarning ish stajini (yillarda) hisoblang.
+SELECT first_name, EXTRACT(YEAR FROM AGE(CURRENT_DATE, hire_data))::int AS years_employed FROM employees;
