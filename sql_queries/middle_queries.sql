@@ -37,3 +37,23 @@ SELECT LEFT(first_name, 3) AS name_part FROM employees;
 
 ---- 40. Bugungi kunga nisbatan xodimlarning ish stajini (yillarda) hisoblang.
 SELECT first_name, EXTRACT(YEAR FROM AGE(CURRENT_DATE, hire_data))::int AS years_employed FROM employees;
+
+
+---- 41. Xodimlarning maosh darajasini belgilang: 4000 dan past - 'Low', 4000-6000 - 'Medium', 6000 dan yuqori - 'High'.
+SELECT first_name, 
+    CASE  
+        WHEN salary < 4000 THEN 'Low'
+        WHEN salary BETWEEN 4000 AND 6000 THEN 'Medium'
+        ELSE 'Hight'
+    END AS salary_level FROM employees;   
+
+
+---- 42. Loyihalarni tugash sanasiga qarab 'Active' yoki 'Completed' deb belgilang.
+SELECT project_name,
+    CASE
+        WHEN end_date > CURRENT_DATE THEN 'Active'
+        ELSE 'Completed'
+    END AS status FROM employees;  
+
+    
+          
