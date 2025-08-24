@@ -85,4 +85,15 @@ SELECT first_name,
        WHEN EXTRACT(YEAR FROM hire_data) < 2020 THEN 'Old'
        ELSE 'New'
     END AS employe_status
-SELECT employees;       
+SELECT employees;  
+
+
+---- 47. Bo'limlarni xodimlar soniga qarab 'Small' (2 dan kam), 'Medium' (2-3), 'Large' (3 dan ko'p) deb tasniflang.
+SELECT d.deparment_name
+    CASE 
+       WHEN COUNT(e.employe_id) < 2 THEN 'Small'
+       WHEN COUNT(e.employe_id) BETWEEN 2 AND 3 THEN 'Medium'
+       ELSE 'Large'
+    END AS deparment_size
+FROM deparments d LEFT JOIN employees e 
+ON d.deparment_id = e.deparment_id ORDER BY d.deparment_name;       
