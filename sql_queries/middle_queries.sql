@@ -55,5 +55,15 @@ SELECT project_name,
         ELSE 'Completed'
     END AS status FROM employees;  
 
-    
-          
+
+---- 43. Maoshi o'rtacha maoshdan yuqori bo'lgan xodimlarni chiqaring
+SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
+
+
+---- 44. Har bir bo'limdagi eng yuqori maosh oluvchi hodimni chiqaring
+SELECT d.deparment_name, e.first_name, e.salary FROM employees e JOIN deparments d
+ON d.deparment_id = e.deparment_id 
+WHERE (e.deparment_id, e.salary) IN (
+    SELECT deparment_id, MAX(salary) FROM employees
+    GROUP BY deparment_id
+);
