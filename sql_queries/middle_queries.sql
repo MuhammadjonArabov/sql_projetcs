@@ -96,4 +96,8 @@ SELECT d.deparment_name
        ELSE 'Large'
     END AS deparment_size
 FROM deparments d LEFT JOIN employees e 
-ON d.deparment_id = e.deparment_id ORDER BY d.deparment_name;       
+ON d.deparment_id = e.deparment_id ORDER BY d.deparment_name;     
+
+
+---- 48. Maoshi eng yuqori 3 xodimni chiqaring
+SELECT first_name, salary FROM employees ORDER BY salary DESC LIMIT 3;
