@@ -67,3 +67,13 @@ WHERE (e.deparment_id, e.salary) IN (
     SELECT deparment_id, MAX(salary) FROM employees
     GROUP BY deparment_id
 );
+
+
+---- 45. Loyihalarni byudjetiga qarab guruhlang: 10000 dan past - 'Small', 10000-20000 - 'Medium', 20000 dan yuqori - 'Large'.
+SELECT project_name,
+    CASE
+        WHEN budget < 10000 THEN 'Small'
+        WHEN budget BETWEEN 10000 and 20000 THEN 'Medium'
+        ELSE 'Large'
+    END AS project_category 
+FROM projects    
