@@ -77,3 +77,12 @@ SELECT project_name,
         ELSE 'Large'
     END AS project_category 
 FROM projects    
+
+
+---- 46. Xodimlarning ishga qabul qilingan yiliga qarab 'Old' (2020 dan oldin) yoki 'New' deb belgilang
+SELECT first_name, 
+    CASE 
+       WHEN EXTRACT(YEAR FROM hire_data) < 2020 THEN 'Old'
+       ELSE 'New'
+    END AS employe_status
+SELECT employees;       
