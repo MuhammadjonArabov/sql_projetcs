@@ -119,3 +119,15 @@ SELECT first_name, email
        ELSE 'Long'
     END AS employe_email_long
 FROM employees;       
+
+
+---- 51. IT bo‘limida ishlaydigan va maoshi 5000 dan yuqori xodimlarni chiqaring.
+SELECT first_name, salary FROM employees WHERE deparment_id = (
+    SELECT deparment_id FROM deparments WHERE deparment_name = 'IT'
+) AND salary > 5000;
+
+SELECT e.first_name, e.salary, d.deparment_name FROM employees e JOIN deparments d
+ON e.deparment_id = d.deparment_id WHERE e.salary > 5000 AND d.deparment_name = 'IT';
+
+
+---- 52. Loyihasi bo'lgan bo'limlarda ishlaydigan xodimlarni chiqaring
