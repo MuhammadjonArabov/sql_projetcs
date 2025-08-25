@@ -101,3 +101,12 @@ ON d.deparment_id = e.deparment_id ORDER BY d.deparment_name;
 
 ---- 48. Maoshi eng yuqori 3 xodimni chiqaring
 SELECT first_name, salary FROM employees ORDER BY salary DESC LIMIT 3;
+
+
+---- 49. Loyihalarni davomiyligiga qarab 'Short' (<6 oy) yoki 'Long' deb belgilang.
+SELECT project_name,
+    CASE, 
+        WHEN (end_date - start_date) < INTERVAL '6 month' THEN 'Sort',
+        ELSE 'Long'
+    END AS project_status
+FROM projects;        
