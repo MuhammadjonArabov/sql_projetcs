@@ -105,8 +105,17 @@ SELECT first_name, salary FROM employees ORDER BY salary DESC LIMIT 3;
 
 ---- 49. Loyihalarni davomiyligiga qarab 'Short' (<6 oy) yoki 'Long' deb belgilang.
 SELECT project_name,
-    CASE, 
+    CASE
         WHEN (end_date - start_date) < INTERVAL '6 month' THEN 'Sort',
         ELSE 'Long'
     END AS project_status
-FROM projects;        
+FROM projects;    
+
+
+---- 50. Xodimlarning email manzillari uzunligiga qarab 'Short' (<20) yoki 'Long' deb belgilang.
+SELECT first_name, email
+    CASE 
+       WHEN LENGTH(email) < 20 THEN 'Short'
+       ELSE 'Long'
+    END AS employe_email_long
+FROM employees;       
